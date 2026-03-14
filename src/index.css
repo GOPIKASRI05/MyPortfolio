@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 7%;
+    --foreground: 0 0% 100%;
+
+    --card: 222 30% 12%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 222 30% 12%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 263 70% 66%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 222 20% 18%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 263 70% 66%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 20% 20%;
+    --input: 222 20% 20%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    --glass-bg: 222 30% 14%;
+    --glass-border: 0 0% 100%;
+    --glow-blue: 217 91% 60%;
+    --glow-violet: 263 70% 66%;
+
+    --sidebar-background: 222 47% 7%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 263 70% 66%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 222 20% 20%;
+    --sidebar-ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply relative rounded-xl border backdrop-blur-xl;
+    background: hsla(var(--glass-bg) / 0.6);
+    border-color: hsla(var(--glass-border) / 0.08);
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-500;
+  }
+
+  .glass-card-hover:hover {
+    border-color: hsla(var(--glass-border) / 0.15);
+    box-shadow: 0 0 30px -5px hsla(var(--glow-blue) / 0.2),
+                0 0 60px -10px hsla(var(--glow-violet) / 0.15);
+    transform: translateY(-4px);
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--glow-blue)), hsl(var(--glow-violet)));
+  }
+
+  .gradient-btn {
+    @apply relative overflow-hidden rounded-lg px-6 py-3 font-heading font-semibold text-sm transition-all duration-300;
+    background: linear-gradient(135deg, hsl(var(--glow-blue)), hsl(var(--glow-violet)));
+  }
+
+  .gradient-btn:hover {
+    box-shadow: 0 0 25px hsla(var(--glow-blue) / 0.4),
+                0 0 50px hsla(var(--glow-violet) / 0.2);
+    transform: translateY(-2px);
+  }
+
+  .gradient-border {
+    @apply relative rounded-xl;
+    background: linear-gradient(135deg, hsla(var(--glow-blue) / 0.2), hsla(var(--glow-violet) / 0.2));
+    padding: 1px;
+  }
+
+  .glow-orb {
+    @apply absolute rounded-full blur-3xl;
+    background: linear-gradient(135deg, hsla(var(--glow-blue) / 0.3), hsla(var(--glow-violet) / 0.3));
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28 px-4;
+  }
+
+  .timeline-line {
+    background: linear-gradient(180deg, hsl(var(--glow-blue)), hsl(var(--glow-violet)));
+  }
+
+  .glass-nav {
+    @apply fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b;
+    background: hsla(var(--background) / 0.7);
+    border-color: hsla(var(--glass-border) / 0.06);
+  }
+
+  .typing-cursor::after {
+    content: '|';
+    @apply ml-0.5 animate-pulse text-primary;
+  }
+}
