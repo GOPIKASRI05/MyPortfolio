@@ -12,7 +12,7 @@ const roles = [
   "Problem Solver",
 ];
 
-const RESUME_URL = "https://drive.google.com/file/d/1DsWXvBrUMv207faJ5nCFNzqjrn8Ai6JS/view?usp=drive_link";
+const RESUME_URL = "https://drive.google.com/file/d/1tXnXbZCYm1eEdgR-c-N5cK6D3XWsNSw0/view?usp=drive_link";
 
 const HeroSection = () => {
   const [roleIndex, setRoleIndex] = useState(0);
